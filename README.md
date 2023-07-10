@@ -6,6 +6,7 @@ Practising different approaches to the Strategy Design Pattern based Arjan's YT 
 Learning outcomes
 1. OO Strategy Implementation
 1. OO Composition based approach
-1. Protocal based approach
+1. Protocol based approach
 1. Functional approach
 
+Use differnt branch names to explore different Strategy patterns
