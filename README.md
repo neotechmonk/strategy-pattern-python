@@ -15,3 +15,11 @@ This is achived by definition of an interface or a contract which is seperate fr
 1. Functional approach
 
 Use differnt branch names to explore different Strategy patterns
+
+
+### 1. OO Strategy Implementation with Abstract Classes
+abstract class `TicketOrderingStrategy` is implmented by `FIFOOrderingStrategy` , `LIFOOrderingStrategy`, `RandomOrderingStrategy`
+
+This allows for `CustomerSuppport.process_tickets()` to be not aware of the ticket ordering logic. The approach allows the code to scale by implementing additional `TicketOrderingStrategy` implementations to be instroduced in the future. 
+
+However, there is no need to change the code in the `CustomerSuppport` class

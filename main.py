@@ -1,4 +1,5 @@
-from support.app import CustomerSupport
+from support.app import (CustomerSupport, FIFOOrderingStrategy,
+                         LIFOOrderingStrategy, RandomOrderingStrategy)
 from support.ticket import SupportTicket
 
 
@@ -16,7 +17,7 @@ def main():
     )
 
     # process the tickets
-    app.process_tickets("fifo")
+    app.process_tickets(processing_strategy=RandomOrderingStrategy())
 
 
 if __name__ == "__main__":
