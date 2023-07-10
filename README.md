@@ -23,3 +23,13 @@ abstract class `TicketOrderingStrategy` is implmented by `FIFOOrderingStrategy` 
 This allows for `CustomerSuppport.process_tickets()` to be not aware of the ticket ordering logic. The approach allows the code to scale by implementing additional `TicketOrderingStrategy` implementations to be instroduced in the future. 
 
 However, there is no need to change the code in the `CustomerSuppport` class
+
+
+
+### 1. Protocol based approach
+Instead of extending `ABC` the interface extends the `Protocol`
+Given the ordering strategy implementation is not tighlightly compled in the Protocal approach, 
+`FIFOOrderingStrategy` , `LIFOOrderingStrategy`, `RandomOrderingStrategy` dont extend `TicketOrderingStrategy`
+
+
+One of the limitation of Protocol is the that `create_ordering()`of concrete classes is not strictly checked against that of `TicketOrderingStrategy`

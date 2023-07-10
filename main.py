@@ -4,7 +4,7 @@ from support.app import (CustomerSupport, FIFOOrderingStrategy,
 from support.ticket import SupportTicket
 
 
-class BlackHoleOrderingStrategy(TicketOrderingStrategy):
+class BlackHoleOrderingStrategy():
         """ New order strategy implemented at a later stage to scale the order approach"""
         def create_ordering(self, tickets: list[SupportTicket]) -> list[SupportTicket]:
              return []
@@ -23,7 +23,7 @@ def main():
     )
 
     # process the tickets
-    app.process_tickets(processing_strategy=BlackHoleOrderingStrategy())
+    app.process_tickets(processing_strategy=FIFOOrderingStrategy())
 
 
 if __name__ == "__main__":

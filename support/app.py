@@ -1,23 +1,23 @@
 import random
-from abc import ABC, abstractmethod
+from typing import Protocol
 
 from support.ticket import SupportTicket
 
 
-class TicketOrderingStrategy(ABC):
-    @abstractmethod
+class TicketOrderingStrategy(Protocol):
     def create_ordering(self, tickets: list[SupportTicket]) -> list[SupportTicket]:
-        """Returns an ordered list of tickets"""
+        ...
+        
 
-class FIFOOrderingStrategy(TicketOrderingStrategy):
+class FIFOOrderingStrategy():
     def create_ordering(self, tickets: list[SupportTicket]) -> list[SupportTicket]:
         return tickets.copy()
     
-class LIFOOrderingStrategy(TicketOrderingStrategy):
+class LIFOOrderingStrategy():
     def create_ordering(self, tickets: list[SupportTicket]) -> list[SupportTicket]:
         return list(reversed(tickets))
     
-class RandomOrderingStrategy(TicketOrderingStrategy):
+class RandomOrderingStrategy():
     def create_ordering(self, tickets: list[SupportTicket]) -> list[SupportTicket]:
         return random.sample(tickets,len(tickets))
     
