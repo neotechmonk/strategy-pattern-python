@@ -44,3 +44,5 @@ replaces the `TicketOrderingStrategy` Protocol class.
 
 `TicketOrderingStrategy` coudl still be used to provide the signature for `CustomerSupport.process_tickets()` even through `main.py` still passes concrete classes for ordering logic.
 This is becuase all functions and classes are objects in python and callable by default.
+
+Ticket ordering classes are now replaced with functions such as `fifo_strategy`, `lifo_strategy`, `random_strategy`

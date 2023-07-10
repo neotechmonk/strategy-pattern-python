@@ -6,16 +6,13 @@ from support.ticket import SupportTicket
 TicketOrderingStrategy = Callable[[list[SupportTicket]], list [SupportTicket]]
 
 
-class FIFOOrderingStrategy():
-    def __call__(self, tickets: list[SupportTicket]) -> list[SupportTicket]:
+def fifo_strategy(  tickets: list[SupportTicket]) -> list[SupportTicket]:
         return tickets.copy()
     
-class LIFOOrderingStrategy():
-    def __call__(self, tickets: list[SupportTicket]) -> list[SupportTicket]:
+def lifo_strategy( tickets: list[SupportTicket]) -> list[SupportTicket]:
         return list(reversed(tickets))
     
-class RandomOrderingStrategy():
-    def __call__(self, tickets: list[SupportTicket]) -> list[SupportTicket]:
+def random_strategy(  tickets: list[SupportTicket]) -> list[SupportTicket]:
         return random.sample(tickets,len(tickets))
     
     
