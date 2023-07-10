@@ -5,20 +5,20 @@ from support.ticket import SupportTicket
 
 
 class TicketOrderingStrategy(Protocol):
-    def create_ordering(self, tickets: list[SupportTicket]) -> list[SupportTicket]:
+    def __call__(self, tickets: list[SupportTicket]) -> list[SupportTicket]:
         ...
-        
+
 
 class FIFOOrderingStrategy():
-    def create_ordering(self, tickets: list[SupportTicket]) -> list[SupportTicket]:
+    def __call__(self, tickets: list[SupportTicket]) -> list[SupportTicket]:
         return tickets.copy()
     
 class LIFOOrderingStrategy():
-    def create_ordering(self, tickets: list[SupportTicket]) -> list[SupportTicket]:
+    def __call__(self, tickets: list[SupportTicket]) -> list[SupportTicket]:
         return list(reversed(tickets))
     
 class RandomOrderingStrategy():
-    def create_ordering(self, tickets: list[SupportTicket]) -> list[SupportTicket]:
+    def __call__(self, tickets: list[SupportTicket]) -> list[SupportTicket]:
         return random.sample(tickets,len(tickets))
     
     
@@ -33,7 +33,7 @@ class CustomerSupport:
 
     def process_tickets(self, processing_strategy: TicketOrderingStrategy):
 
-        ticket_list = processing_strategy.create_ordering(self.tickets)
+        ticket_list = processing_strategy(self.tickets)
 
         # if it's empty, don't do anything
         if len(ticket_list) == 0:

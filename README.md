@@ -32,4 +32,7 @@ Given the ordering strategy implementation is not tighlightly compled in the Pro
 `FIFOOrderingStrategy` , `LIFOOrderingStrategy`, `RandomOrderingStrategy` dont extend `TicketOrderingStrategy`
 
 
-One of the limitation of Protocol is the that `create_ordering()`of concrete classes is not strictly checked against that of `TicketOrderingStrategy`
+One of the limitation of Protocol is the that `create_or
+dering()`of concrete classes is not strictly checked against that of `TicketOrderingStrategy`
+
+Considering the specific ordering strategies have only one method, the object itself could be converted into a callable with `__call__()`
