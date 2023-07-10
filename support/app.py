@@ -1,12 +1,9 @@
 import random
-from typing import Protocol
+from typing import Callable
 
 from support.ticket import SupportTicket
 
-
-class TicketOrderingStrategy(Protocol):
-    def __call__(self, tickets: list[SupportTicket]) -> list[SupportTicket]:
-        ...
+TicketOrderingStrategy = Callable[[list[SupportTicket]], list [SupportTicket]]
 
 
 class FIFOOrderingStrategy():

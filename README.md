@@ -36,3 +36,11 @@ One of the limitation of Protocol is the that `create_or
 dering()`of concrete classes is not strictly checked against that of `TicketOrderingStrategy`
 
 Considering the specific ordering strategies have only one method, the object itself could be converted into a callable with `__call__()`
+
+
+### 1. Function based implementation
+TicketOrderingStrategy = Callable[[list[SupportTicket]], list [SupportTicket]]
+replaces the `TicketOrderingStrategy` Protocol class. 
+
+`TicketOrderingStrategy` coudl still be used to provide the signature for `CustomerSupport.process_tickets()` even through `main.py` still passes concrete classes for ordering logic.
+This is becuase all functions and classes are objects in python and callable by default.
